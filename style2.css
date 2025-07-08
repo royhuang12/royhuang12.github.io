@@ -1,12 +1,14 @@
-/* style3.css - 粉紅色系配色 */
+/* style3.css - 鵝黃色系配色 (以 #FDD761 為主) */
 
-/* 粉紅色系配色變數 */
+/* 鵝黃色系配色變數 */
 :root {
-    --primary-pink: #ff6b9d;
-    --secondary-pink: #ffd3e0;
-    --light-pink: #fff0f5;
-    --deep-pink: #e91e63;
-    --gradient-pink: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 50%, #ffa8c0 100%);
+    --primary-yellow: #FDD761; /* 主要鵝黃色 */
+    --secondary-yellow: #FFEA98; /* 次要鵝黃色：比主色略淺、用於 hover 和點綴 */
+    --light-yellow: #FFF9E6; /* 最淺鵝黃色：頁面背景、淺色區塊 */
+    --deep-brown: #6B5B3E; /* 深棕色：標題、重要文本、頁腳，與鵝黃色搭配更柔和且清晰 */
+    --gradient-yellow: linear-gradient(135deg, #FDD761 0%, #FFD040 50%, #FFEA98 100%); /* 漸層鵝黃色 */
+    --yellow-shadow: rgba(253, 215, 97, 0.3); /* 鵝黃色陰影：基於主鵝黃色的透明度 */
+    --text-color: #333; /* 文本顏色保持深灰色，高可讀性 */
 }
 
 * {
@@ -18,43 +20,43 @@
 body {
     font-family: 'Microsoft JhengHei', Arial, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background: var(--light-pink);
+    color: var(--text-color); /* 保持深灰色文本，高可讀性 */
+    background: var(--light-yellow); /* 頁面背景調整為最淺鵝黃色 */
 }
 
 /* Navigation */
 .navbar {
-    background: rgba(255, 107, 157, 0.95) !important;
+    background: rgba(255, 255, 255, 0.95) !important; /* Navbar 背景保持白色，更乾淨 */
     backdrop-filter: blur(10px);
-    box-shadow: 0 2px 20px rgba(255, 107, 157, 0.3);
+    box-shadow: 0 2px 20px var(--yellow-shadow); /* 陰影調整為鵝黃色陰影變數 */
     transition: all 0.3s ease;
 }
 
 .navbar-brand {
     font-weight: bold;
     font-size: 1.5rem;
-    color: white !important;
+    color: var(--primary-yellow) !important; /* 品牌名稱使用主要鵝黃色 */
 }
 
 .navbar-nav .nav-link {
-    color: white !important;
+    color: var(--deep-brown) !important; /* 導覽連結文字顏色改為深棕色，提高可讀性 */
     font-weight: 500;
     margin: 0 10px;
     transition: all 0.3s ease;
 }
 
 .navbar-nav .nav-link:hover {
-    color: var(--secondary-pink) !important;
+    color: var(--primary-yellow) !important; /* 導覽連結懸停時使用主要鵝黃色 */
     transform: translateY(-2px);
 }
 
 /* Hero Section */
 .hero {
-    background: var(--gradient-pink);
+    background: var(--gradient-yellow); /* Hero 區塊背景調整為鵝黃色漸層 */
     min-height: 100vh;
     display: flex;
     align-items: center;
-    color: white;
+    color: var(--deep-brown); /* Hero 區塊文字顏色調整為深棕色，提高可讀性 */
     position: relative;
     overflow: hidden;
 }
@@ -66,7 +68,8 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="200" cy="200" r="100" fill="rgba(255,255,255,0.1)"/><circle cx="800" cy="300" r="150" fill="rgba(255,255,255,0.05)"/><circle cx="600" cy="700" r="120" fill="rgba(255,255,255,0.08)"/></svg>');
+    /* SVG 內部顏色 rgba(0,0,0,0.05) 調整為黑色半透明效果，以在淺色背景上更明顯 */
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="200" cy="200" r="100" fill="rgba(0,0,0,0.05)"/><circle cx="800" cy="300" r="150" fill="rgba(0,0,0,0.025)"/><circle cx="600" cy="700" r="120" fill="rgba(0,0,0,0.04)"/></svg>');
     animation: float 20s ease-in-out infinite;
 }
 
@@ -84,7 +87,7 @@ body {
     font-size: 3.5rem;
     font-weight: bold;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1); /* 調整陰影顏色以適應淺色背景 */
 }
 
 .hero .subtitle {
@@ -98,8 +101,8 @@ body {
     height: 300px;
     border-radius: 50%;
     object-fit: cover;
-    border: 6px solid white;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border: 6px solid var(--deep-brown); /* 邊框顏色調整為深棕色 */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* 陰影調整為深色，與邊框搭配 */
     transition: transform 0.3s ease;
 }
 
@@ -116,26 +119,26 @@ body {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
-    color: var(--deep-pink);
+    color: var(--primary-yellow); /* 區塊標題使用主要鵝黃色 */
     font-weight: bold;
 }
 
 .bg-light {
-    background: var(--secondary-pink) !important;
+    background: var(--light-yellow) !important; /* 輕量背景調整為最淺鵝黃色 */
 }
 
 /* Cards */
 .card {
     border: none;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(255, 107, 157, 0.2);
+    box-shadow: 0 10px 30px var(--yellow-shadow); /* 陰影調整為鵝黃色陰影變數 */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     background: white;
 }
 
 .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(255, 107, 157, 0.3);
+    box-shadow: 0 20px 40px var(--yellow-shadow); /* 陰影調整為鵝黃色陰影變數 */
 }
 
 /* Filter Buttons */
@@ -146,8 +149,8 @@ body {
 
 .filter-btn {
     background: white;
-    color: var(--primary-pink);
-    border: 2px solid var(--primary-pink);
+    color: var(--primary-yellow); /* 按鈕文字顏色使用主要鵝黃色 */
+    border: 2px solid var(--primary-yellow); /* 按鈕邊框使用主要鵝黃色 */
     padding: 10px 25px;
     margin: 5px;
     border-radius: 25px;
@@ -157,10 +160,10 @@ body {
 
 .filter-btn:hover,
 .filter-btn.active {
-    background: var(--primary-pink);
-    color: white;
+    background: var(--primary-yellow); /* 按鈕懸停或活躍時背景使用主要鵝黃色 */
+    color: white; /* 按鈕懸停或活躍時文字顏色為白色 */
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 107, 157, 0.4);
+    box-shadow: 0 5px 15px var(--yellow-shadow); /* 陰影調整為鵝黃色陰影變數 */
 }
 
 /* Project Grid */
@@ -175,7 +178,7 @@ body {
     background: white;
     padding: 2rem;
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(255, 107, 157, 0.15);
+    box-shadow: 0 5px 20px var(--yellow-shadow); /* 陰影調整為鵝黃色陰影變數 */
     transition: all 0.3s ease;
     cursor: pointer;
     position: relative;
@@ -189,17 +192,17 @@ body {
     left: 0;
     width: 100%;
     height: 4px;
-    background: var(--gradient-pink);
+    background: var(--gradient-yellow); /* 頂部裝飾線使用鵝黃色漸層 */
 }
 
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(255, 107, 157, 0.25);
+    box-shadow: 0 15px 35px var(--yellow-shadow); /* 陰影調整為鵝黃色陰影變數 */
 }
 
 .project-number {
-    background: var(--gradient-pink);
-    color: white;
+    background: var(--gradient-yellow); /* 專案編號背景使用鵝黃色漸層 */
+    color: var(--deep-brown); /* 專案編號文字顏色為深棕色，與背景形成對比 */
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -211,7 +214,7 @@ body {
 }
 
 .project-card h5 {
-    color: var(--deep-pink);
+    color: var(--primary-yellow); /* 專案卡片標題使用主要鵝黃色 */
     margin-bottom: 1rem;
     font-weight: bold;
 }
@@ -221,7 +224,7 @@ body {
     background: white;
     padding: 3rem;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(255, 107, 157, 0.2);
+    box-shadow: 0 10px 30px var(--yellow-shadow); /* 陰影調整為鵝黃色陰影變數 */
 }
 
 .contact-item {
@@ -229,7 +232,7 @@ body {
     align-items: center;
     margin-bottom: 2rem;
     padding: 1rem;
-    background: var(--light-pink);
+    background: var(--light-yellow); /* 聯繫項目背景使用最淺鵝黃色 */
     border-radius: 10px;
     transition: transform 0.3s ease;
 }
@@ -240,23 +243,23 @@ body {
 
 .contact-item i {
     font-size: 2rem;
-    color: var(--primary-pink);
+    color: var(--primary-yellow); /* 圖示顏色使用主要鵝黃色 */
     margin-right: 1rem;
     width: 50px;
 }
 
 .contact-item a {
-    color: var(--deep-pink) !important;
+    color: var(--deep-brown) !important; /* 連結文字顏色為深棕色 */
     text-decoration: none;
 }
 
 .contact-item a:hover {
-    color: var(--primary-pink) !important;
+    color: var(--primary-yellow) !important; /* 連結懸停時顏色為主要鵝黃色 */
 }
 
 /* Footer */
 .footer {
-    background: var(--deep-pink);
+    background: var(--deep-brown); /* 頁腳背景使用深棕色 */
     color: white;
     text-align: center;
     padding: 2rem 0;
@@ -264,14 +267,15 @@ body {
 
 /* Animations */
 .fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
+    opacity: 0; /* 初始狀態：完全透明 */
+    transform: translateY(30px) scale(0.9); /* 初始狀態：向下移動 30px，同時縮小到 90% */
+    transition: all 0.6s ease; /* 動畫持續 0.6 秒，緩入緩出 */
 }
 
+/* 這個 class 通常會透過 JavaScript 在元素進入視窗時被加入 */
 .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1; /* 最終狀態：完全不透明 */
+    transform: translateY(0) scale(1); /* 最終狀態：回到原位，恢復 100% 大小 */
 }
 
 /* Responsive Design */
@@ -279,29 +283,29 @@ body {
     .hero h1 {
         font-size: 2.5rem;
     }
-    
+
     .profile-img {
         width: 250px;
         height: 250px;
     }
-    
+
     .project-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .section-title {
         font-size: 2rem;
     }
-    
+
     .filter-btn {
         padding: 8px 20px;
         font-size: 0.9rem;
     }
-    
+
     .project-card {
         padding: 1.5rem;
     }
-    
+
     .contact-info {
         padding: 2rem;
     }
@@ -311,33 +315,33 @@ body {
     .hero h1 {
         font-size: 2rem;
     }
-    
+
     .hero .subtitle {
         font-size: 1.1rem;
     }
-    
+
     .section {
         padding: 60px 0;
     }
-    
+
     .profile-img {
         width: 200px;
         height: 200px;
     }
-    
+
     .project-card {
         padding: 1.2rem;
     }
-    
+
     .contact-info {
         padding: 1.5rem;
     }
-    
+
     .contact-item {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .contact-item i {
         margin-right: 0;
         margin-bottom: 0.5rem;
